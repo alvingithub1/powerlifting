@@ -29,7 +29,7 @@
 }
 
 #box4 {
-  background-color: black;
+  background-color: green;
   width: 25px;
   height: 80px;
   margin: 5px;
@@ -67,6 +67,28 @@
   color: white;
   border: solid 1px;
   font-size: 12px;
+}
+
+#box8 {
+  background-color: black;
+  width: 25px;
+  height: 30px;
+  margin: 5px;
+  text-align: center;
+  color: white;
+  border: solid 1px;
+  font-size: 12px;
+}
+
+#box9 {
+  background-color: black;
+  width: 25px;
+  height: 25px;
+  margin: 5px;
+  text-align: center;
+  color: white;
+  border: solid 1px;
+  font-size: 10px;
 }
 
 #box-holder {

@@ -7,6 +7,8 @@ import ColorBox4 from './components/ColorBox4'
 import ColorBox5 from './components/ColorBox5'
 import ColorBox6 from './components/ColorBox6'
 import ColorBox7 from './components/ColorBox7'
+import ColorBox8 from './components/ColorBox8'
+import ColorBox9 from './components/ColorBox9'
 import './App.css';
 import Button from 'react-bootstrap/Button';
 
@@ -24,6 +26,8 @@ export class App extends Component {
       colorBoxArray5: [],
       colorBoxArray6: [],
       colorBoxArray7: [],
+      colorBoxArray8: [],
+      colorBoxArray9: [],
     }
   }
 
@@ -181,6 +185,50 @@ export class App extends Component {
     }
   }
 
+  addColorBox8 = () => {
+    let { colorBoxArray8, kgTotal, lbTotal } = this.state
+    this.setState({ 
+      colorBoxArray8: [...colorBoxArray8, <ColorBox8 />],
+      kgTotal: kgTotal + 1,
+      lbTotal: lbTotal + 2.20462
+    })
+  }
+
+  removeColorBox8 = () => {
+    let { colorBoxArray8, kgTotal, lbTotal } = this.state
+
+    if(this.state.colorBoxArray8.length > 0) {
+      colorBoxArray8.pop()
+      this.setState({ 
+        colorBoxArray8: colorBoxArray8,
+        kgTotal: kgTotal - 1,
+        lbTotal: lbTotal - 2.20462
+        })
+    }
+  }
+
+  addColorBox9 = () => {
+    let { colorBoxArray9, kgTotal, lbTotal } = this.state
+    this.setState({ 
+      colorBoxArray9: [...colorBoxArray9, <ColorBox9 />],
+      kgTotal: kgTotal + .5,
+      lbTotal: lbTotal + 1.10231
+    })
+  }
+
+  removeColorBox9 = () => {
+    let { colorBoxArray9, kgTotal, lbTotal } = this.state
+
+    if(this.state.colorBoxArray9.length > 0) {
+      colorBoxArray9.pop()
+      this.setState({ 
+        colorBoxArray9: colorBoxArray9,
+        kgTotal: kgTotal - .5,
+        lbTotal: lbTotal - 1.10231
+        })
+    }
+  }
+
   reset = () => {
     this.setState({
       kgTotal: 20,
@@ -192,11 +240,13 @@ export class App extends Component {
       colorBoxArray5: [],
       colorBoxArray6: [],
       colorBoxArray7: [],
+      colorBoxArray8: [],
+      colorBoxArray9: [],
     })
   }
 
   render() {
-    let { colorBoxArray, colorBoxArray2, colorBoxArray3, colorBoxArray4, colorBoxArray5, colorBoxArray6, colorBoxArray7 } = this.state
+    let { colorBoxArray, colorBoxArray2, colorBoxArray3, colorBoxArray4, colorBoxArray5, colorBoxArray6, colorBoxArray7, colorBoxArray8, colorBoxArray9 } = this.state
     return (
       <>
       
@@ -228,8 +278,8 @@ export class App extends Component {
         </div>
         
         <div className='buttonPairs'>
-        <Button variant="outline-dark" onClick ={ this.addColorBox4 }>+10</Button>
-        <Button variant="outline-dark" onClick ={ this.removeColorBox4 }>-10</Button>
+        <Button variant="outline-success" onClick ={ this.addColorBox4 }>+10</Button>
+        <Button variant="outline-success" onClick ={ this.removeColorBox4 }>-10</Button>
         </div>
 
         <div className='buttonPairs'>
@@ -245,6 +295,16 @@ export class App extends Component {
         <div className='buttonPairs'>
         <Button variant="outline-dark" onClick ={ this.addColorBox7 }>+1.25</Button>
         <Button variant="outline-dark" onClick ={ this.removeColorBox7 }>-1.25</Button>
+        </div>
+
+        <div className='buttonPairs'>
+        <Button variant="outline-dark" onClick ={ this.addColorBox8 }>+0.5</Button>
+        <Button variant="outline-dark" onClick ={ this.removeColorBox8 }>-0.5</Button>
+        </div>
+
+        <div className='buttonPairs'>
+        <Button variant="outline-dark" onClick ={ this.addColorBox9 }>+0.25</Button>
+        <Button variant="outline-dark" onClick ={ this.removeColorBox9 }>-0.25</Button>
         </div>
 
       </div> {/* buttonList div */}
@@ -285,6 +345,15 @@ export class App extends Component {
       <div id="box-holder">
         { colorBoxArray7 }
       </div>
+      
+      <div id="box-holder">
+        { colorBoxArray8 }
+      </div>
+      
+      <div id="box-holder">
+        { colorBoxArray9 }
+      </div>
+      
       </div> {/* bottomMenu div */}
     </div> {/* plateMenu div */}
     </div> {/* background image div */}
